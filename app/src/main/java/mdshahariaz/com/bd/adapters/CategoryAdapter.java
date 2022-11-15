@@ -39,6 +39,8 @@ public class CategoryAdapter extends  RecyclerView.Adapter<CategoryAdapter.Categ
         Glide.with(context)
                 .load(category.getIcon())
                 .load(holder.binding.image);
+
+        holder.binding.image.setBackgroundColor(Color.parseColor(category.getColor()));
     }
 
     @Override

@@ -24,10 +24,12 @@ public class MainActivity extends AppCompatActivity {
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+        categories=new ArrayList<>();
+        categoryAdapter=new CategoryAdapter(this,categories);
 
         GridLayoutManager layoutManager = new GridLayoutManager(this,4);
         binding.categoriesList.setLayoutManager(layoutManager);
+        binding.categoriesList.setAdapter(categoryAdapter);
         binding.categoriesList.setAdapter(categoryAdapter);
     }
 }
