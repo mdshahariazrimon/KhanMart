@@ -17,10 +17,14 @@ import mdshahariaz.com.bd.R;
 import mdshahariaz.com.bd.databinding.ItemCategoriesBinding;
 import mdshahariaz.com.bd.model.Category;
 
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
-
+public class CategoryAdapter extends  RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>{
     Context context;
-    ArrayList<Category>categories;
+    ArrayList<Category> categories;
+
+    public CategoryAdapter(Context context, ArrayList<Category> categories){
+        this.context=context;
+        this.categories=categories;
+    }
 
     @NonNull
     @Override
@@ -30,15 +34,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-        Category category=categories.get(position);
+        Category category =categories.get(position);
         holder.binding.label.setText(category.getName());
-
-        //load image
         Glide.with(context)
                 .load(category.getIcon())
-                .into(holder.binding.image);
-
-        holder.binding.image.setBackgroundColor(Color.parseColor(category.getColor()));
+                .load(holder.binding.image);
     }
 
     @Override
@@ -46,10 +46,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         return categories.size();
     }
 
-    //Create a subclass
     public class CategoryViewHolder extends RecyclerView.ViewHolder{
-        //To enable view binding, go to gradle...
-        //TO use view binding
+
         ItemCategoriesBinding binding;
 
         public CategoryViewHolder(@NonNull View itemView) {
@@ -57,4 +55,5 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             binding = ItemCategoriesBinding.bind(itemView);
         }
     }
+
 }
