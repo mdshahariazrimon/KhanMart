@@ -25,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         categories=new ArrayList<>();
+        categories.add(new Category("Sports","https://www.flaticon.com/free-icon/sports_857455?term=sports&page=1&position=7&page=1&position=7&related_id=857455&origin=search","#FF0000","Description",1));
+        categories.add(new Category("Sports","https://www.flaticon.com/free-icon/sports_857455?term=sports&page=1&position=7&page=1&position=7&related_id=857455&origin=search","#FF0000","Description",1));
+        categories.add(new Category("Sports","https://www.flaticon.com/free-icon/sports_857455?term=sports&page=1&position=7&page=1&position=7&related_id=857455&origin=search","#FF0000","Description",1));
+        categories.add(new Category("Sports","https://www.flaticon.com/free-icon/sports_857455?term=sports&page=1&position=7&page=1&position=7&related_id=857455&origin=search","#FF0000","Description",1));
+        categories.add(new Category("Sports","https://www.flaticon.com/free-icon/sports_857455?term=sports&page=1&position=7&page=1&position=7&related_id=857455&origin=search","#FF0000","Description",1));
         categoryAdapter=new CategoryAdapter(this,categories);
 
         GridLayoutManager layoutManager = new GridLayoutManager(this,4);
