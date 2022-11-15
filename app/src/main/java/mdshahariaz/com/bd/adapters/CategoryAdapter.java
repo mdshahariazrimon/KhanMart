@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 import mdshahariaz.com.bd.R;
@@ -29,6 +31,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         Category category=categories.get(position);
         holder.binding.label.setText(category.getName());
+
+        //load image
+        Glide.with(context)
+                .load(category.getIcon())
+                .into(holder.binding.image);
     }
 
     @Override
