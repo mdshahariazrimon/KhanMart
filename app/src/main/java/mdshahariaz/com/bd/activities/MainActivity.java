@@ -25,16 +25,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         categories=new ArrayList<>();
-        categories.add(new Category("Sports","https://www.flaticon.com/free-icon/sports_857455?term=sports&page=1&position=7&page=1&position=7&related_id=857455&origin=search","#FF0000","Description",1));
-        categories.add(new Category("Sports","https://www.flaticon.com/free-icon/sports_857455?term=sports&page=1&position=7&page=1&position=7&related_id=857455&origin=search","#FF0000","Description",1));
-        categories.add(new Category("Sports","https://www.flaticon.com/free-icon/sports_857455?term=sports&page=1&position=7&page=1&position=7&related_id=857455&origin=search","#FF0000","Description",1));
-        categories.add(new Category("Sports","https://www.flaticon.com/free-icon/sports_857455?term=sports&page=1&position=7&page=1&position=7&related_id=857455&origin=search","#FF0000","Description",1));
-        categories.add(new Category("Sports","https://www.flaticon.com/free-icon/sports_857455?term=sports&page=1&position=7&page=1&position=7&related_id=857455&origin=search","#FF0000","Description",1));
+        categories.add(new Category("Sports","https://cdn0.iconfinder.com/data/icons/stroke-ball-icons-2/633/02_Soccer-512.png","#FF0000","Description",1));
+        categories.add(new Category("Food","https://www.flaticon.com/free-icon/sports_857455?term=sports&page=1&position=7&page=1&position=7&related_id=857455&origin=search","#FF0030","Description",1));
+        categories.add(new Category("Electronics","https://www.flaticon.com/free-icon/sports_857455?term=sports&page=1&position=7&page=1&position=7&related_id=857455&origin=search","#FF0001","Description",1));
+        categories.add(new Category("Fashion","https://www.flaticon.com/free-icon/sports_857455?term=sports&page=1&position=7&page=1&position=7&related_id=857455&origin=search","#FF0022","Description",1));
+        categories.add(new Category("Bevarage","https://www.flaticon.com/free-icon/sports_857455?term=sports&page=1&position=7&page=1&position=7&related_id=857455&origin=search","#FF0077","Description",1));
         categoryAdapter=new CategoryAdapter(this,categories);
 
         GridLayoutManager layoutManager = new GridLayoutManager(this,4);
         binding.categoriesList.setLayoutManager(layoutManager);
         binding.categoriesList.setAdapter(categoryAdapter);
-        binding.categoriesList.setAdapter(categoryAdapter);
+
     }
 }

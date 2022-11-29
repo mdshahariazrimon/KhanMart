@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/mdrim/StudioProjects/KhanMart/app/src/main/res/font/roboto_bold.xml" value="0.2546875" />
         <entry key="..\:/Users/mdrim/StudioProjects/KhanMart/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/mdrim/StudioProjects/KhanMart/app/src/main/res/layout/activity_product_detail.xml" value="0.25" />
         <entry key="..\:/Users/mdrim/StudioProjects/KhanMart/app/src/main/res/layout/item_categories.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/mdrim/StudioProjects/KhanMart/app/src/main/res/layout/item_product.xml" value="0.22447916666666667" />
       </map>
     </option>
   </component>

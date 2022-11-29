@@ -6,17 +6,18 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/image"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/purple_500"
+        android:padding="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/placeholder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/img"
-        android:padding="2dp"
-        app:riv_oval="true"
-        android:scaleType="centerCrop"
-        android:background="@color/orange"
         app:riv_mutate_background="true"
+        app:riv_oval="true"
         />
 
     <TextView
@@ -29,5 +30,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/image"
         app:layout_constraintStart_toStartOf="@+id/image"
-        app:layout_constraintTop_toBottomOf="@+id/image" />
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
