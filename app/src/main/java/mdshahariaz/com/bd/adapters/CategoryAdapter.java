@@ -1,6 +1,7 @@
 package mdshahariaz.com.bd.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,8 @@ public class CategoryAdapter extends  RecyclerView.Adapter<CategoryAdapter.Categ
         Glide.with(context)
                 .load(category.getIcon())
                 .into(holder.binding.image);
+
+        holder.binding.image.setBackgroundColor(Color.parseColor(category.getColor()));
     }
 
     @Override

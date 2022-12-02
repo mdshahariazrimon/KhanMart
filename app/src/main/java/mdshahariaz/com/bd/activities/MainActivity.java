@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.os.Bundle;
 
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
+
 import java.util.ArrayList;
 
 import mdshahariaz.com.bd.adapters.CategoryAdapter;
@@ -30,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
         initCategories();
         initProducts();
+        initSlider();
+    }
 
+    private void initSlider() {
+        binding.carousel.addData(new CarouselItem("https://www.shutterstock.com/image-vector/banner-best-offer-260nw-706166626.jpg","Offer"));
     }
 
     void initCategories(){
