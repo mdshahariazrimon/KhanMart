@@ -12,4 +12,6 @@
     <color name="purple">#530349</color>
     <color name="ash">#454343</color>
     <color name="light_blue">#008A7E</color>
+
+    <color name="backgroundColor">#E8E8E8</color>
 </resources>
