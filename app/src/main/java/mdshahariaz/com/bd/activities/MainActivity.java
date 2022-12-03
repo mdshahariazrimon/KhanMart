@@ -46,10 +46,11 @@ public class MainActivity extends AppCompatActivity {
         initProducts();
         initSlider();
         getRecentProducts();
+        getRecentOffers();
     }
 
     private void initSlider() {
-        binding.carousel.addData(new CarouselItem("https://www.shutterstock.com/image-vector/banner-best-offer-260nw-706166626.jpg","Offer"));
+        //binding.carousel.addData(new CarouselItem("https://www.shutterstock.com/image-vector/banner-best-offer-260nw-706166626.jpg","Offer"));
     }
 
     void initCategories(){
@@ -138,6 +139,30 @@ public class MainActivity extends AppCompatActivity {
         }, error -> {
 
         });
+        queue.add(request);
+    }
+    void getRecentOffers() {
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        StringRequest request = new StringRequest(Request.Method.GET, Constants.GET_OFFERS_URL, response -> {
+            try {
+                JSONObject object = new JSONObject(response);
+                if(object.getString("status").equals("success")) {
+                    JSONArray offerArray = object.getJSONArray("news_infos");
+                    for(int i =0; i < offerArray.length(); i++) {
+                        JSONObject childObj =  offerArray.getJSONObject(i);
+                        binding.carousel.addData(
+                                new CarouselItem(
+                                        Constants.NEWS_IMAGE_URL + childObj.getString("image"),
+                                        childObj.getString("title")
+                                )
+                        );
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }, error -> {});
         queue.add(request);
     }
 

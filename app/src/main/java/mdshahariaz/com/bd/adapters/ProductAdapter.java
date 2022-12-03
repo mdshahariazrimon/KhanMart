@@ -1,9 +1,11 @@
 package mdshahariaz.com.bd.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +15,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 import mdshahariaz.com.bd.R;
+import mdshahariaz.com.bd.activities.ProductDetailActivity;
 import mdshahariaz.com.bd.databinding.ItemProductBinding;
 import mdshahariaz.com.bd.model.Product;
 
@@ -40,6 +43,18 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 .into(holder.binding.image);
         holder.binding.label.setText(product.getName());
         holder.binding.price.setText("BDT" +product.getPrice());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, ProductDetailActivity.class);
+                intent.putExtra("name",product.getName());
+                intent.putExtra("image",product.getImage());
+                intent.putExtra("id",product.getId());
+                intent.putExtra("price",product.getPrice());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
