@@ -1,13 +1,21 @@
 package mdshahariaz.com.bd.activities;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.os.Bundle;
+
+import com.hishd.tinycart.model.Cart;
+import com.hishd.tinycart.model.Item;
+import com.hishd.tinycart.util.TinyCartHelper;
 
 import java.util.ArrayList;
+import java.util.Map;
 
-import mdshahariaz.com.bd.R;
 import mdshahariaz.com.bd.adapters.CartAdapter;
 import mdshahariaz.com.bd.databinding.ActivityCartBinding;
 import mdshahariaz.com.bd.model.Product;
@@ -16,7 +24,8 @@ public class CartActivity extends AppCompatActivity {
 
     ActivityCartBinding binding;
     CartAdapter adapter;
-    ArrayList<Product>products;
+    ArrayList<Product> products;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +34,39 @@ public class CartActivity extends AppCompatActivity {
 
         products = new ArrayList<>();
 
-        products.add(new Product("P1","---","",45,45,45,1));
+        Cart cart = TinyCartHelper.getCart();
 
-        adapter = new CartAdapter(this,products);
+        for(Map.Entry<Item, Integer> item : cart.getAllItemsWithQty().entrySet()) {
+            Product product = (Product) item.getKey();
+            int quantity = item.getValue();
+            product.setQuantity(quantity);
 
-        binding.cartList.setLayoutManager(new LinearLayoutManager(this));
+            products.add(product);
+        }
+
+        adapter = new CartAdapter(this, products, new CartAdapter.CartListener() {
+            @Override
+            public void onQuantityChanged() {
+                binding.subtotal.setText(String.format("PKR %.2f",cart.getTotalPrice()));
+            }
+        });
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(this, layoutManager.getOrientation());
+        binding.cartList.setLayoutManager(layoutManager);
+        binding.cartList.addItemDecoration(itemDecoration);
         binding.cartList.setAdapter(adapter);
+
+
+        binding.subtotal.setText(String.format("PKR %.2f",cart.getTotalPrice()));
+
+
+        binding.continueBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CartActivity.this, CheckoutActivity.class));
+            }
+        });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

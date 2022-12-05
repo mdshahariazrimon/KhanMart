@@ -11,7 +11,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red"
+        android:background="@color/orange"
         android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,9 @@
             style="@style/MaterialSearchBarLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:mt_hint="Custom hint"
+            app:mt_hint="Search your favorite product"
+            app:mt_placeholder="aExpress"
+            app:mt_navIconEnabled="true"
             app:mt_maxSuggestionsCount="10"
             app:mt_speechMode="true" />
     </LinearLayout>
@@ -55,8 +57,7 @@
                     android:layout_height="150dp"
                     app:showNavigationButtons="false"
                     app:showCaption="false"
-                    app:autoPlay="true"
-                    />
+                    app:autoPlay="true"/>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -69,11 +70,12 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/categoriesList"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp" />
             </androidx.cardview.widget.CardView>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/productlist"
+                android:id="@+id/productList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp" />
